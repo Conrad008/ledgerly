@@ -29,7 +29,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="flex flex-col gap-2">
                         <label for="expense-amount" class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Amount (/=)</label>
-                        <input type="number" id="expense-amount" step="10" min="0" placeholder="0" required
+                        <input type="number" id="expense-amount" step="1" min="0" placeholder="0" required
                             class="w-full text-sm px-4 py-2.5 border border-zinc-200 rounded-lg bg-white text-zinc-900 focus:outline-hidden focus:border-zinc-900 focus:ring-3 focus:ring-zinc-100 transition-all">
                     </div>
                     <div class="flex flex-col gap-2">
@@ -56,7 +56,34 @@
             </form>
         </section>
 
-        
+        <section class="md:col-span-8 flex flex-col gap-6">
+            <div class="bg-zinc-900 text-white rounded-xl p-6 shadow-xs border border-zinc-800">
+                <div class="text-xs font-medium uppercase tracking-wider opacity-70">Total Day's Earnings</div>
+                <div class="text-3xl md:text-4xl font-bold tracking-tight mt-1" id="total-amount">KSH 0</div>
+            </div>
+
+            <div class="bg-white border border-zinc-200 rounded-xl p-5 md:p-6 shadow-xs">
+                <div class="flex flex-row justify-between items-center border-b border-zinc-100 pb-4 mb-4 gap-2">
+                    <h2 class="text-base md:text-lg font-semibold tracking-tight text-zinc-900 ">Expense History</h2>
+
+                    <div class="bg-white border border-zinc-200 rounded-xl p-2 md:p-3 shadow-xs">
+                        <label for="category-filter" class="sr-only">Filter by Category</label>
+                        <select id="category-filter" 
+                            class="text-lg px-2.5 py-1.5  rounded-md bg-white text-zinc-700 focus:outline-hidden focus:border-zinc-900">
+                            <option value="All">All Categories</option>
+                            <option value="Food">Food & Dining</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Utilities">Utilities & Bills</option>
+                            <option value="Education">Education</option>
+                            <option value="Other">Other</option>
+                        </select>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
     </main>
     
 </body>
