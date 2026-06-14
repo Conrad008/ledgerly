@@ -108,3 +108,8 @@ expenseList.addEventListener('click', (e) => {
     tracker.removeExpense(deleteBtn.dataset.id);
     renderUI();
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    tracker.loadFromLocalStorage();
+    renderUI();
+});
