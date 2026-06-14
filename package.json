@@ -1,0 +1,16 @@
+{
+  "name": "ledgerly",
+  "version": "1.0.0",
+  "description": "Take control of your daily financial habits",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "jest-environment-jsdom": "^30.4.1"
+  }
+}
