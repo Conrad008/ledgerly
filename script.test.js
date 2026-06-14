@@ -38,4 +38,12 @@ describe('Ledgerly Expense Tracker Unit Tests', () => {
         expect(tracker.expenses.length).toBe(1);
         expect(tracker.expenses[0].id).toBe(item2.id);
     });
+
+    test('Should calculate the sum total of all expenses', () => {
+        tracker.addExpenses(
+            new Expense('Groceries', 2400.00, 'Food'),
+            new Expense('Books', 1200.00, 'Education')
+        );
+        expect(tracker.calculateTotal()).toBe(3600.25);
+    });
 });
