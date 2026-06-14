@@ -44,7 +44,7 @@ describe('Ledgerly Expense Tracker Unit Tests', () => {
             new Expense('Groceries', 2400.00, 'Food'),
             new Expense('Books', 1200.00, 'Education')
         );
-        expect(tracker.calculateTotal()).toBe(3600.25);
+        expect(tracker.calculateTotal()).toBe(3600.00);
     });
 
     test('Should filter tracked asset lists selectively', () => {
