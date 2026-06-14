@@ -46,4 +46,14 @@ describe('Ledgerly Expense Tracker Unit Tests', () => {
         );
         expect(tracker.calculateTotal()).toBe(3600.25);
     });
+
+    test('Should filter tracked asset lists selectively', () => {
+        tracker.addExpenses(
+            new Expense('Dinner', 1200, 'Food'),
+            new Expense('Matatu Fare', 100, 'Transport')
+        );
+        const transportOnly = tracker.filterByCategory('Transport');
+        expect(transportOnly.length).toBe(1);
+        expect(transportOnly[0].description).toBe('Matatu Fare');
+    });
 });
