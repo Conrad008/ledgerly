@@ -27,4 +27,15 @@ describe('Ledgerly Expense Tracker Unit Tests', () => {
         expect(description).toBe('Lunch at Java House');
         expect(amount).toBe(1500.00); 
     });
+
+    test('Should remove a targeted expense from the system state array by its unique ID', () => {
+        const item1 = new Expense('Internet Bill', 3500, 'Utilities');
+        const item2 = new Expense('Movie Ticket', 800, 'Entertainment');
+        
+        tracker.addExpenses(item1, item2);
+        tracker.removeExpense(item1.id);
+
+        expect(tracker.expenses.length).toBe(1);
+        expect(tracker.expenses[0].id).toBe(item2.id);
+    });
 });
