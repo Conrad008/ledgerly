@@ -7,3 +7,37 @@ class Expense {
         this.date = new Date().toLocaleDateString();
     }
 }
+
+class ExpenseTracker {
+    constructor() {
+        this.expenses = [];
+    }
+
+    addExpenses(...newExpenses) {
+        this.expenses = [...this.expenses, ...newExpenses];
+        this.saveToLocalStorage();
+    }
+
+    removeExpense(id) {
+        this.expenses = this.expenses.filter(expense => expense.id !== id);
+        this.saveToLocalStorage();
+    }
+
+    calculateTotal() {
+        return this.expenses.reduce((total, expense) => total + expense.amount, 0);
+    }
+
+    filterByCategory(category) {
+        if (!category || category === 'All') return this.expenses;
+        return this.expenses.filter(expense => expense.category === category);
+    }
+
+    saveToLocalStorage() {
+        localStorage.setItem('ledgerly_expenses', JSON.stringify(this.expenses));
+    }
+
+    loadFromLocalStorage() {
+        const stored = localStorage.getItem('ledgerly_expenses');
+        this.expenses = stored ? JSON.parse(stored) : [];
+    }
+}
