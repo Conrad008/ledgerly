@@ -56,7 +56,7 @@ function renderUI() {
     const activeCategory = categoryFilter.value;
     const filteredExpenses = tracker.filterByCategory(activeCategory);
 
-    totalAmountDisplay.textContent = `$${tracker.calculateTotal().toFixed(2)}`;
+   totalAmountDisplay.textContent = `KSH ${tracker.calculateTotal().toFixed(2)}`;
 
     if (filteredExpenses.length === 0) {
         expenseList.innerHTML = `
@@ -76,7 +76,7 @@ function renderUI() {
                     <div class="text-xs text-zinc-400 mt-0.5">${category} • ${date}</div>
                 </div>
                 <div class="flex items-center gap-3 md:gap-4 shrink-0">
-                    <span class="font-bold text-sm md:text-base text-zinc-900">$${amount.toFixed(2)}</span>
+                    <span class="font-bold text-sm md:text-base text-zinc-900">KSH ${amount.toFixed(2)}</span>
                     <button data-id="${id}" class="delete-btn text-zinc-400 hover:text-red-500 hover:bg-red-50 p-1.5 rounded-md transition-all cursor-pointer text-sm md:text-base" title="Delete Record">
                         Remove
                     </button>
@@ -109,7 +109,13 @@ expenseList.addEventListener('click', (e) => {
     renderUI();
 });
 
+categoryFilter.addEventListener('change', renderUI);
+
 document.addEventListener('DOMContentLoaded', () => {
     tracker.loadFromLocalStorage();
     renderUI();
 });
+
+if (typeof module !== 'undefined') {
+    module.exports = { Expense, ExpenseTracker };
+}
