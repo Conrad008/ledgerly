@@ -85,3 +85,17 @@ function renderUI() {
         `;
     }).join('');
 }
+
+expenseForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const newExpense = new Expense(
+        descriptionInput.value,
+        amountInput.value,
+        categoryInput.value
+    );
+
+    tracker.addExpenses(newExpense);
+    expenseForm.reset();
+    renderUI();
+});
