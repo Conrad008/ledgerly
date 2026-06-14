@@ -99,3 +99,12 @@ expenseForm.addEventListener('submit', (e) => {
     expenseForm.reset();
     renderUI();
 });
+
+
+expenseList.addEventListener('click', (e) => {
+    const deleteBtn = e.target.closest('.delete-btn');
+    if (!deleteBtn) return;
+
+    tracker.removeExpense(deleteBtn.dataset.id);
+    renderUI();
+});
